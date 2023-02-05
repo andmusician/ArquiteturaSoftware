@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DoFactory.GangOfFour.Abstract.RealWorld
+namespace ArquiteturaSoftware.AbstractFactory1
 {
     /// <summary>
     /// MainApp startup class for Real-World
@@ -111,7 +111,7 @@ namespace DoFactory.GangOfFour.Abstract.RealWorld
         {
             // Eat Wildebeest
 
-            Console.WriteLine(this.GetType().Name +
+            Console.WriteLine(GetType().Name +
               " eats " + h.GetType().Name);
         }
     }
@@ -134,7 +134,7 @@ namespace DoFactory.GangOfFour.Abstract.RealWorld
         {
             // Eat Bison
 
-            Console.WriteLine(this.GetType().Name +
+            Console.WriteLine(GetType().Name +
               " eats " + h.GetType().Name);
         }
     }

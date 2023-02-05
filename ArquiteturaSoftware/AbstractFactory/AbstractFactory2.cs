@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArquiteturaSoftware
+namespace ArquiteturaSoftware.AbstractFactory2
 {
     internal class AbstractFactoryImplementation2
     {
@@ -29,21 +29,21 @@ namespace ArquiteturaSoftware
         public abstract CartaoCredito GetCartaoCredito();
         public abstract Pix GetPix();
         public abstract Boleto GetBoleto();
-    }    
-
-    class CartaoCredito 
-    {
-        
     }
 
-    class Pix 
+    class CartaoCredito
     {
-        
+
     }
 
-    class Boleto 
+    class Pix
     {
-       
+
+    }
+
+    class Boleto
+    {
+
     }
 
     class BoletoBrasil : Boleto

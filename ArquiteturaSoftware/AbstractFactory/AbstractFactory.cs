@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GangOfFour.Abstract.Structural
+namespace ArquiteturaSoftware.AbstractFactory
 {
     /// <summary>
     /// MainApp startup class for Structural
@@ -129,7 +129,7 @@ namespace GangOfFour.Abstract.Structural
     {
         public override void Interact(AbstractProductA a)
         {
-            Console.WriteLine(this.GetType().Name +
+            Console.WriteLine(GetType().Name +
               " interacts with " + a.GetType().Name);
         }
     }
@@ -150,7 +150,7 @@ namespace GangOfFour.Abstract.Structural
     {
         public override void Interact(AbstractProductA a)
         {
-            Console.WriteLine(this.GetType().Name +
+            Console.WriteLine(GetType().Name +
               " interacts with " + a.GetType().Name);
         }
     }
