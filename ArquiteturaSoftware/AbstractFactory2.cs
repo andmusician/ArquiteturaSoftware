@@ -13,79 +13,152 @@ namespace ArquiteturaSoftware
             SistemaPagamentoDosPaises Eua = new SistemaPagamentoEUA();
             Client client = new Client(Eua);
             client.Run();
+
+            SistemaPagamentoDosPaises Brasil = new SistemaPagamentoBrasil();
+            client = new Client(Brasil);
+            client.Run();
+
+            SistemaPagamentoDosPaises Franca = new SistemaPagamentoFranca();
+            client = new Client(Franca);
+            client.Run();
         }
     }
 
     abstract class SistemaPagamentoDosPaises
     {
-        public abstract MeiosPagamento RealizaPagamento();
+        public abstract CartaoCredito GetCartaoCredito();
+        public abstract Pix GetPix();
+        public abstract Boleto GetBoleto();
+    }    
+
+    class CartaoCredito 
+    {
+        
     }
 
-    abstract class MeiosPagamento
+    class Pix 
     {
-        public abstract void Pagar();
+        
     }
 
-    class CartaoCredito : MeiosPagamento
+    class Boleto 
     {
-        public override void Pagar()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
-    class Pix : MeiosPagamento
+    class BoletoBrasil : Boleto
     {
-        public override void Pagar()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 
-    class Boleto : MeiosPagamento
+    class BoletoEUA : Boleto
     {
-        public override void Pagar()
-        {
-            throw new NotImplementedException();
-        }
+
+    }
+
+    class BoletoFranca : Boleto
+    {
+
+    }
+
+    class PixBrasil : Pix
+    {
+
+    }
+
+    class PixEUA : Pix
+    {
+
+    }
+
+    class PixFranca : Pix
+    {
+
+    }
+
+    class CartaoCreditoBrasil : CartaoCredito
+    {
+
+    }
+
+    class CartaoCreditoEUA : CartaoCredito
+    {
+
+    }
+
+    class CartaoCreditoFranca : CartaoCredito
+    {
+
     }
 
     class SistemaPagamentoEUA : SistemaPagamentoDosPaises
     {
-        public override MeiosPagamento RealizaPagamento()
+        public override Boleto GetBoleto()
         {
-            throw new NotImplementedException();
+            return new BoletoEUA();
+        }
+
+        public override CartaoCredito GetCartaoCredito()
+        {
+            return new CartaoCreditoEUA();
+        }
+
+        public override Pix GetPix()
+        {
+            return new PixEUA();
         }
     }
 
     class SistemaPagamentoBrasil : SistemaPagamentoDosPaises
     {
-        public override MeiosPagamento RealizaPagamento()
+        public override Boleto GetBoleto()
         {
-            throw new NotImplementedException();
+            return new BoletoBrasil();
+        }
+
+        public override CartaoCredito GetCartaoCredito()
+        {
+            return new CartaoCreditoBrasil();
+        }
+
+        public override Pix GetPix()
+        {
+            return new PixBrasil();
         }
     }
 
     class SistemaPagamentoFranca : SistemaPagamentoDosPaises
     {
-        public override MeiosPagamento RealizaPagamento()
+        public override Boleto GetBoleto()
         {
-            throw new NotImplementedException();
+            return new BoletoFranca();
+        }
+
+        public override CartaoCredito GetCartaoCredito()
+        {
+            return new CartaoCreditoFranca();
+        }
+
+        public override Pix GetPix()
+        {
+            return new PixFranca();
         }
     }
 
     class Client
     {
-        private MeiosPagamento _pagamento;
+        private SistemaPagamentoDosPaises _pagamentos;
 
         public Client(SistemaPagamentoDosPaises sistemaPagamentoDosPaises)
         {
-            _pagamento = sistemaPagamentoDosPaises.RealizaPagamento();
+            _pagamentos = sistemaPagamentoDosPaises;
         }
 
         public void Run()
         {
-            _pagamento.Pagar();
+            CartaoCredito cartaoCredito = _pagamentos.GetCartaoCredito();
+            Boleto boleto = _pagamentos.GetBoleto();
+            Pix pix = _pagamentos.GetPix();
         }
 
     }

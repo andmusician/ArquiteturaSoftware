@@ -1,9 +1,9 @@
-﻿using GangOfFour.Abstract.Structural;
+﻿using ArquiteturaSoftware;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        AbstractFactoryImplementation.Execute();        
+        AbstractFactoryImplementation2.Execute();        
     }
 }
