@@ -1,5 +1,6 @@
 ﻿using ArquiteturaSoftware.AbstractFactory2;
 using ArquiteturaSoftware.FactoryMethod;
+using ArquiteturaSoftware.Singleton;
 
 internal class Program
 {
@@ -7,5 +8,6 @@ internal class Program
     {
         AbstractFactoryImplementation2.Execute();
         FactoryMethod.Execute();
+        Singleton.Execute();
     }
 }
